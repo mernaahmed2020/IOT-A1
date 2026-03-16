@@ -1,0 +1,1904 @@
+[
+    {
+        "id": "01c790c02a2f2c6d",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7f763bce6fef3ae0",
+        "type": "json",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "502ae0d378f462fc",
+                "1720ac4c29eb9cde"
+            ]
+        ]
+    },
+    {
+        "id": "f7de0544373f515b",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "7f763bce6fef3ae0",
+                "c2f419d3f98ac084"
+            ]
+        ]
+    },
+    {
+        "id": "1272093027928840",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "502ae0d378f462fc",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 2",
+        "func": "let data = JSON.parse(msg.payload);\nmsg.payload = data.value;\nmsg.topic = \"Temperature\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "1272093027928840",
+                "95856f6707af075c",
+                "8e5c0ee4b99f8688",
+                "efe284b52306833a"
+            ]
+        ]
+    },
+    {
+        "id": "95856f6707af075c",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1720ac4c29eb9cde",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "598b41f71aa276a0",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 300,
+        "wires": [
+            [
+                "59c053e54e7f8221",
+                "c2f419d3f98ac084"
+            ]
+        ]
+    },
+    {
+        "id": "59c053e54e7f8221",
+        "type": "json",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "8a9a8834c2bb36d1",
+                "f1d95a396593bba1"
+            ]
+        ]
+    },
+    {
+        "id": "8a9a8834c2bb36d1",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 3",
+        "func": "let data = JSON.parse(msg.payload);\nmsg.payload = data.value;\nmsg.topic = \"Humidity\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [
+                "724b29d64fd3b014",
+                "906aefae299a0c17",
+                "8e5c0ee4b99f8688"
+            ]
+        ]
+    },
+    {
+        "id": "f1d95a396593bba1",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "724b29d64fd3b014",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "906aefae299a0c17",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1160,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4ab59d367240d05f",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/light",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "59cc0b9f7e582581",
+                "c2f419d3f98ac084"
+            ]
+        ]
+    },
+    {
+        "id": "59cc0b9f7e582581",
+        "type": "json",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "1231a5d2d6573ee8"
+            ]
+        ]
+    },
+    {
+        "id": "1231a5d2d6573ee8",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 4",
+        "func": "let data = JSON.parse(msg.payload);\nmsg.payload = data.value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "c2319a2ef36c8cc4"
+            ]
+        ]
+    },
+    {
+        "id": "c2319a2ef36c8cc4",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light level",
+        "label": "lux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1160,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1ef8209cd55c24c0",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/motion",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 520,
+        "wires": [
+            [
+                "9a841be6d3ae50c4",
+                "c2f419d3f98ac084"
+            ]
+        ]
+    },
+    {
+        "id": "9a841be6d3ae50c4",
+        "type": "json",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 230,
+        "y": 520,
+        "wires": [
+            [
+                "08448803bee2605d",
+                "19783b439142ed46"
+            ]
+        ]
+    },
+    {
+        "id": "08448803bee2605d",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 5",
+        "func": "let data = JSON.parse(msg.payload);\n\nif (data.detected) {\n    msg.payload = \"Motion Detected\";\n    msg.color = \"red\";\n} else {\n    msg.payload = \"No Motion\";\n    msg.color = \"green\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 520,
+        "wires": [
+            [
+                "fad385cd408c39d5",
+                "0f2e67ea55301cbe"
+            ]
+        ]
+    },
+    {
+        "id": "19783b439142ed46",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "fad385cd408c39d5",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "0f2e67ea55301cbe",
+        "type": "ui_text",
+        "z": "01c790c02a2f2c6d",
+        "group": "c9c46cb42d153f46",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Motion ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Arial Black,Arial Black,Gadget,sans-serif",
+        "fontSize": 16,
+        "color": "#c83289",
+        "x": 1170,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "fd2d98dafde0fbc5",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 80,
+        "y": 640,
+        "wires": [
+            [
+                "b8a4258b3371b2ad",
+                "c2f419d3f98ac084"
+            ]
+        ]
+    },
+    {
+        "id": "b8a4258b3371b2ad",
+        "type": "json",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 640,
+        "wires": [
+            [
+                "fa6440b76cf0bf02"
+            ]
+        ]
+    },
+    {
+        "id": "aa1ff15970c325bb",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "fa6440b76cf0bf02",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 6",
+        "func": "let data = JSON.parse(msg.payload);\nmsg.payload = data.value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 640,
+        "wires": [
+            [
+                "aa1ff15970c325bb",
+                "4144a638fcbb45a5"
+            ]
+        ]
+    },
+    {
+        "id": "4144a638fcbb45a5",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distance",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1160,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8e5c0ee4b99f8688",
+        "type": "ui_chart",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "real-time chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#afe9b9",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1360,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "efe284b52306833a",
+        "type": "switch",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 20,
+        "wires": [
+            [
+                "0eff70832ab86112",
+                "4704a6dea50e912b",
+                "6602d292b0321658"
+            ]
+        ]
+    },
+    {
+        "id": "0eff70832ab86112",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 7",
+        "func": "msg.topic = \"Alert froom iot system\";\nmsg.payload = \"High temperature detected!\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 20,
+        "wires": [
+            [
+                "6fdaa596f85e7e5e"
+            ]
+        ]
+    },
+    {
+        "id": "6fdaa596f85e7e5e",
+        "type": "ui_toast",
+        "z": "01c790c02a2f2c6d",
+        "position": "top right",
+        "displayTime": "4",
+        "highlight": "pink",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Temperature Alert",
+        "x": 850,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "e6934f608a6ed316",
+        "type": "telegram sender",
+        "z": "01c790c02a2f2c6d",
+        "name": "telegram bot",
+        "bot": "c1874853110d7cea",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4704a6dea50e912b",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 8",
+        "func": "msg.payload = {\n    chatId: 1418831139,\n    type: \"message\",\n    content: \"⚠ HIGH TEMPERATURE detected!\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 60,
+        "wires": [
+            [
+                "e6934f608a6ed316"
+            ]
+        ]
+    },
+    {
+        "id": "6602d292b0321658",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 9",
+        "func": "let history = flow.get(\"alertHistory\") || [];\n\nhistory.unshift({\n    time: new Date().toLocaleString(),\n    alert: \"HIGH TEMPERATURE\"\n});\n\nflow.set(\"alertHistory\", history);\n\nmsg.payload = history;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "a891a99bb41d7d9b"
+            ]
+        ]
+    },
+    {
+        "id": "a891a99bb41d7d9b",
+        "type": "ui_table",
+        "z": "01c790c02a2f2c6d",
+        "group": "c9c46cb42d153f46",
+        "name": "Alert history",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "time",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "alert",
+                "title": "Alert",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 830,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ced8a78e2cc7074",
+        "type": "ui_button",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "download 24h data",
+        "tooltip": "",
+        "color": "red",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "download",
+        "payloadType": "str",
+        "topic": "export",
+        "topicType": "str",
+        "x": 1590,
+        "y": 480,
+        "wires": [
+            [
+                "8b2b790de04a0842"
+            ]
+        ]
+    },
+    {
+        "id": "d2e43d4c8b49108b",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 11",
+        "func": "let lines = msg.payload.split(\"\\n\");\n\nlet now = Date.now();\nlet last24h = now - (24 * 60 * 60 * 1000);\n\nlet filtered = [];\n\nfor (let line of lines) {\n\n    if(line.trim() === \"\") continue;\n\n    let parts = line.split(\",\");\n\n    let timestamp = new Date(parts[0]).getTime();\n\n    if(timestamp >= last24h){\n        filtered.push(line);\n    }\n\n}\n\nmsg.payload = filtered.join(\"\\n\");\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2150,
+        "y": 480,
+        "wires": [
+            [
+                "f6f2093ac9132a68",
+                "7bc8f0e6808fc619"
+            ]
+        ]
+    },
+    {
+        "id": "f6f2093ac9132a68",
+        "type": "ui_template",
+        "z": "01c790c02a2f2c6d",
+        "group": "c9c46cb42d153f46",
+        "name": "",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n    (function(scope){\n\n    scope.$watch('msg', function(msg){\n\n        if(!msg) return;\n\n        var data = msg.payload;\n\n        var blob = new Blob([data], {type: \"text/csv\"});\n\n        var url = URL.createObjectURL(blob);\n\n        var a = document.createElement(\"a\");\n\n        a.href = url;\n\n        a.download = \"last24hours_data.csv\";\n\n        document.body.appendChild(a);\n\n        a.click();\n\n        document.body.removeChild(a);\n\n    });\n\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 2360,
+        "y": 480,
+        "wires": [
+            [
+                "ad3cf6526222cce9"
+            ]
+        ]
+    },
+    {
+        "id": "ad3cf6526222cce9",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2440,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7bc8f0e6808fc619",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2300,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6db8025459d49237",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2140,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c2f419d3f98ac084",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 12",
+        "func": "let timestamp = new Date().toISOString();\nlet sensor = msg.topic;\n\nlet value;\n\n// if payload is an object, extract the first value\nif (typeof msg.payload === \"object\") {\n    value = Object.values(msg.payload)[0];\n} else {\n    value = msg.payload;\n}\n\nmsg.payload = `${timestamp},${sensor},${value}\\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 240,
+        "wires": [
+            [
+                "a493171d4316b077"
+            ]
+        ]
+    },
+    {
+        "id": "a493171d4316b077",
+        "type": "file",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "filename": "C:/Users/Merna/data/log_data.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1380,
+        "y": 240,
+        "wires": [
+            [
+                "d396a13f7188f2d7"
+            ]
+        ]
+    },
+    {
+        "id": "d396a13f7188f2d7",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8b2b790de04a0842",
+        "type": "file in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "filename": "C:/Users/Merna/data/log_data.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 1880,
+        "y": 480,
+        "wires": [
+            [
+                "d2e43d4c8b49108b"
+            ]
+        ]
+    },
+    {
+        "id": "aa13d33390288885",
+        "type": "ui_dropdown",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "c9c46cb42d153f46",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "1",
+                "value": "last 1hour",
+                "type": "str"
+            },
+            {
+                "label": "6",
+                "value": "last 6 hour",
+                "type": "str"
+            },
+            {
+                "label": "24",
+                "value": "last 24 hour",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "className": "",
+        "x": 1580,
+        "y": 360,
+        "wires": [
+            [
+                "1da10af5848889e1"
+            ]
+        ]
+    },
+    {
+        "id": "1da10af5848889e1",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 10",
+        "func": "let hours = msg.payload;\n\nlet now = Date.now();\n\nmsg.startTime = now - (hours * 60 * 60 * 1000);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1770,
+        "y": 360,
+        "wires": [
+            [
+                "6d505c74e6ee662a"
+            ]
+        ]
+    },
+    {
+        "id": "6d505c74e6ee662a",
+        "type": "file in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "filename": "C:/Users/Merna/data/log_data.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 2040,
+        "y": 360,
+        "wires": [
+            [
+                "0836fed8d6f0c6a2"
+            ]
+        ]
+    },
+    {
+        "id": "0836fed8d6f0c6a2",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 13",
+        "func": "let lines = msg.payload.split(\"\\n\");\n\nlet start = msg.startTime;\n\nlet temperatureData = [];\nlet humidityData = [];\n\n// clear chart first\nnode.send({payload: []});\n\nfor (let line of lines) {\n\n    if(line.trim() === \"\") continue;\n\n    let parts = line.split(\",\");\n\n    let timestamp = new Date(parts[0]).getTime();\n    let sensor = parts[1];\n    let value = Number(parts[2]);\n\n    if(timestamp >= start){\n\n        if(sensor === \"sensors/temperature\"){\n            temperatureData.push({x: timestamp, y: value});\n        }\n\n        if(sensor === \"sensors/humidity\"){\n            humidityData.push({x: timestamp, y: value});\n        }\n\n    }\n}\n\nmsg.payload = [\n    {series:\"Temperature\", data:[temperatureData]},\n    {series:\"Humidity\", data:[humidityData]}\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2290,
+        "y": 360,
+        "wires": [
+            [
+                "964786eaaefa084a"
+            ]
+        ]
+    },
+    {
+        "id": "964786eaaefa084a",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "send to chart",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1510,
+        "y": 440,
+        "wires": [
+            [
+                "8e5c0ee4b99f8688"
+            ]
+        ]
+    },
+    {
+        "id": "b1359f839190c20d",
+        "type": "ui_switch",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "led control",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "actuators/led",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "810b4bc8af2cb68c",
+                "5f9c1251560dbf52"
+            ]
+        ]
+    },
+    {
+        "id": "519e334a8b703223",
+        "type": "ui_switch",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "actuaors/buzzer",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "643d3b68cd34607c",
+                "4a52a9e1da3dec64"
+            ]
+        ]
+    },
+    {
+        "id": "f7235c5b9cfc3dc9",
+        "type": "ui_switch",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "relay control",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "actuators/relay",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "633c7cae499040d9",
+                "cc4ef161f38553a7"
+            ]
+        ]
+    },
+    {
+        "id": "810b4bc8af2cb68c",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 350,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "643d3b68cd34607c",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 410,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "633c7cae499040d9",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 430,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "3fe5359f3f2587a5",
+        "type": "ui_slider",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "Servo angel",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "actuators/servo",
+        "topicType": "str",
+        "min": 0,
+        "max": "180",
+        "step": 1,
+        "className": "",
+        "x": 150,
+        "y": 980,
+        "wires": [
+            [
+                "6f63f4ee4e949dd9",
+                "dcf4b43a50785156"
+            ]
+        ]
+    },
+    {
+        "id": "6f63f4ee4e949dd9",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 430,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "5f9c1251560dbf52",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "4a52a9e1da3dec64",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "cc4ef161f38553a7",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "dcf4b43a50785156",
+        "type": "debug",
+        "z": "01c790c02a2f2c6d",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "af6f4f5c6eb23a13",
+        "type": "ui_numeric",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "temp_threshold",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "threshold/temperature",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "74f8f8c01de70a2e"
+            ]
+        ]
+    },
+    {
+        "id": "74f8f8c01de70a2e",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 370,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "043412bb14c00373",
+        "type": "ui_numeric",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "Light Threshold",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "threshold/light",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "step": "10",
+        "className": "",
+        "x": 200,
+        "y": 1180,
+        "wires": [
+            [
+                "06d644a6a2bba48b"
+            ]
+        ]
+    },
+    {
+        "id": "06d644a6a2bba48b",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 350,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "05e461ae8cee99aa",
+        "type": "ui_numeric",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "label": "distance threshold",
+        "tooltip": "",
+        "group": "c9c46cb42d153f46",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "threshold/distance",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "step": 1,
+        "className": "",
+        "x": 150,
+        "y": 1240,
+        "wires": [
+            [
+                "d7081182a901f22e"
+            ]
+        ]
+    },
+    {
+        "id": "d7081182a901f22e",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 350,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "18027aab47b1faa2",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "sensors/distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 520,
+        "y": 1120,
+        "wires": [
+            [
+                "4d8a2142ed9cea25",
+                "a4fbd218db7e9c14"
+            ]
+        ]
+    },
+    {
+        "id": "4d8a2142ed9cea25",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "group": "c9c46cb42d153f46",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "distance",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 560,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "a4fbd218db7e9c14",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "function 14",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 1120,
+        "wires": [
+            [
+                "f8f4362a5742fdf0"
+            ]
+        ]
+    },
+    {
+        "id": "f8f4362a5742fdf0",
+        "type": "mqtt out",
+        "z": "01c790c02a2f2c6d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "95e661a325dc3c11",
+        "x": 710,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "mqtt_status",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "ESP32 Status",
+        "topic": "system/status",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 870,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa82b0c5bfa22e4c",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "Distance",
+        "topic": "sensors/distance",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 100,
+        "y": 1340,
+        "wires": [
+            [
+                "519efcd7fdd1931c"
+            ]
+        ]
+    },
+    {
+        "id": "519efcd7fdd1931c",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "Extract Distance",
+        "func": "msg.payload = msg.payload.value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1340,
+        "wires": [
+            [
+                "6b98ead8e1c1b7ee"
+            ]
+        ]
+    },
+    {
+        "id": "6b98ead8e1c1b7ee",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "Distance",
+        "group": "c9c46cb42d153f46",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "distance",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "x": 550,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "859de85228914a96",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "WiFi RSSI",
+        "topic": "system/rssi",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 100,
+        "y": 1440,
+        "wires": [
+            [
+                "1596b32f877d4d50"
+            ]
+        ]
+    },
+    {
+        "id": "1596b32f877d4d50",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "Extract RSSI",
+        "func": "msg.payload = Number(msg.payload.rssi || msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1440,
+        "wires": [
+            [
+                "bc0f918013cc3054"
+            ]
+        ]
+    },
+    {
+        "id": "bc0f918013cc3054",
+        "type": "ui_gauge",
+        "z": "01c790c02a2f2c6d",
+        "name": "WiFi Signal Strength",
+        "group": "c9c46cb42d153f46",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "WiFi Signal Strength",
+        "label": "dBm",
+        "format": "{{value}}",
+        "min": "-90",
+        "max": "-30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "3e148e3a61e928b9",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "Free Heap",
+        "topic": "system/heap",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 100,
+        "y": 1490,
+        "wires": [
+            [
+                "b8ce057b723f260d"
+            ]
+        ]
+    },
+    {
+        "id": "b8ce057b723f260d",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "Extract Heap",
+        "func": "msg.payload = msg.payload.heap || msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1490,
+        "wires": [
+            [
+                "bf15683b968d310a"
+            ]
+        ]
+    },
+    {
+        "id": "bf15683b968d310a",
+        "type": "ui_text",
+        "z": "01c790c02a2f2c6d",
+        "group": "c9c46cb42d153f46",
+        "width": "",
+        "height": "",
+        "name": "Free Heap",
+        "label": "Free Heap",
+        "format": "{{msg.payload}} bytes",
+        "layout": "",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 550,
+        "y": 1490,
+        "wires": []
+    },
+    {
+        "id": "f24077eff4e70811",
+        "type": "mqtt in",
+        "z": "01c790c02a2f2c6d",
+        "name": "ESP32 Status",
+        "topic": "system/status",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "95e661a325dc3c11",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 100,
+        "y": 1540,
+        "wires": [
+            [
+                "2d2b83de225014ee"
+            ]
+        ]
+    },
+    {
+        "id": "2d2b83de225014ee",
+        "type": "function",
+        "z": "01c790c02a2f2c6d",
+        "name": "Format Status",
+        "func": "msg.payload = \"ESP32 \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "95e661a325dc3c11",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c9c46cb42d153f46",
+        "type": "ui_group",
+        "name": "Sensors",
+        "tab": "9ecc77ee28017545",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c1874853110d7cea",
+        "type": "telegram bot",
+        "botname": "Env_sys_iot_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "9ecc77ee28017545",
+        "type": "ui_tab",
+        "name": "Environment Monitor",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4dbd743e3da07f40",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-telegrambot": "17.1.2",
+            "node-red-node-ui-table": "0.4.5"
+        }
+    }
+]
